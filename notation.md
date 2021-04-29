@@ -47,8 +47,8 @@
   
   The set of the real numbers.
   
-    1.2 ∈ ℝ = true
-    3.3 ∈ ℝ = true
+    1.2  ∈ ℝ = true
+    3.3  ∈ ℝ = true
     -0.3 ∈ ℝ = true
 
 ### Class of sets
@@ -58,7 +58,7 @@
   The class of all sets. Think of this as the set of sets.
 
     𝔹 ∈ Set = true
-    (𝔹 -> 𝔹) ∈ Set = true
+    (𝔹 → 𝔹) ∈ Set = true
     { 1, 2 } ∈ Set = true
 
 ## Set operators
@@ -172,25 +172,25 @@
 
 ### Implication
 
-  ```a => b = ¬a \/ b```
+  ```a ⇒ b = ¬a \/ b```
 
   a is true implies b is true.
 
-    true  => false = false
-    false => true  = true
-    true  => true  = true
-    false => false = true
+    true  ⇒ false = false
+    false ⇒ true  = true
+    true  ⇒ true  = true
+    false ⇒ false = true
 
 ### Double Implication
 
-  ```a <=> b = (a => b) /\ (b => a)```
+  ```a ≡ b = (a ⇒ b) /\ (b ⇒ a)```
 
   a is true implies b is true and b is true implies a is true.
 
-    true  <=> false = false
-    false <=> true  = false
-    true  <=> true = true
-    false <=> false = true
+    true  ≡ false = false
+    false ≡ true  = false
+    true  ≡ true  = true
+    false ≡ false = true
 
 ### Universal quantification
 
@@ -247,54 +247,54 @@
 
 ### Function type
 
-  ```A -> B```
+  ```A → B```
 
   Functions are maps from elements of set A to elements of set B.
 
-    f : ℝ -> ℝ, x |-> x * x
-    f ∈ (ℝ -> ℝ) = true
+    f : ℝ → ℝ, x |-> x * x
+    f ∈ (ℝ → ℝ) = true
 
 ### Domain
 
-  ```∀A B ∈ Set: Domain(A -> B) = A```
+  ```∀A B ∈ Set: Domain(A → B) = A```
 
   The domain of a function is its input set.
 
-    Domain({ 1 } -> { 2 }) = { 1 }
+    Domain({ 1 } → { 2 }) = { 1 }
 
 ### Codomain
 
-  ```∀A B ∈ Set: Codomain(A -> B) = B```
+  ```∀A B ∈ Set: Codomain(A → B) = B```
 
   The domain of a function is its output set.
 
-    Codomain({ 1 } -> { 2 }) = { 2 }
+    Codomain({ 1 } → { 2 }) = { 2 }
 
 ### Predicate
 
-  ```∀f ∈ (A -> 𝔹): Predicate(f)```
+  ```∀f ∈ (A → 𝔹): Predicate(f)```
 
   Predicates are functions whose codomain is boolean digits.
 
-    f : [-2, 2] -> 𝔹
+    f : [-2, 2] → 𝔹
     Predicate(f) = true
 
 ### Function definition
 
-  ```f : A -> B, x |-> y```
+  ```f : A → B, x ↦ y```
 
   Function definitions declare how elements of set A are mapped to elements of set B.
 
-    not : 𝔹 -> 𝔹, x |-> ¬x
+    not : 𝔹 → 𝔹, x ↦ ¬x
     not(true)  = false
     not(false) = true
 
 ### Function definition by cases
 
-  ```h : A -> B, x |-> { f(x), p(x) } { g(x), ¬p(x) }``` 
+  ```h : A → B, x ↦ { f(x), p(x) } { g(x), ¬p(x) }```
 
   Function definitions by cases declare how elements of set A are mapped to elements of set B arbitrated by a predicate over the value of the element of set A.
 
-    positive : ℝ -> 𝔹, x |-> { true, x >= 0 } { false, x < 0 }
+    positive : ℝ → 𝔹, x ↦ { true, x >= 0 } { false, x < 0 }
     positive(1)  = true
     positive(-1) = false
