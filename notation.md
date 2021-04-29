@@ -250,8 +250,7 @@
   ```A → B```
 
   Functions are maps from elements of set A to elements of set B.
-
-    f : ℝ → ℝ, x |-> x * x
+    f : ℝ → ℝ, x ↦ x * x
     f ∈ (ℝ → ℝ) = true
 
 ### Domain
