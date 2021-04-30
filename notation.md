@@ -4,13 +4,13 @@
 
 ### Set construction
 
-  ```{ a, b, c }```
+  ```{a,b,c}```
 
   The set containing elements a, b and c.
 
-    1 ∈ { 1, 2 } = true
-    2 ∈ { 1, 2 } = true
-    3 ∈ { 1, 2 } = false
+    1 ∈ {1,2} = true
+    2 ∈ {1,2} = true
+    3 ∈ {1,2} = false
 
 ### Empty set
 
@@ -29,7 +29,6 @@
     0 ∈ 𝔹 = true
     1 ∈ 𝔹 = true
     2 ∈ 𝔹 = false
-
 
 ### Natural numbers
 
@@ -59,7 +58,7 @@
 
     𝔹 ∈ Set = true
     (𝔹 → 𝔹) ∈ Set = true
-    { 1, 2 } ∈ Set = true
+    {1,2} ∈ Set = true
 
 ## Set operators
 
@@ -69,7 +68,7 @@
 
   The set without the element b.
 
-    1 ∈ ({ 1, 2 } / 1) = false
+    {1,2} / 1 = {2}
 
 ### Intersection
 
@@ -77,7 +76,7 @@
   
   The set of elements found in both A and B.
   
-    { 1 } ∩ { 1, 2 } = { 1 }
+    {1} ∩ {1,2} = {1}
 
 ### Union
 
@@ -85,57 +84,55 @@
   
   The set of all unique elements found in A and B.
   
-    { 1 } ∪ { 1, 2 } = { 1, 2 }
+    {1} ∪ {1,2} = {1,2}
+
+### Cartesian Product
+
+  ```A × B```
+
+  All elements of A paired with all elements of B.
+
+    {1,2} × {3,4} = {(1,3),(1,4),(2,3),(2,4)}
 
 ### Disjoint
 
-  ```Disjoint(A, B) <=> A ∩ B = Ø``` 
+  ```Disjoint(A,B) ≡ A ∩ B = Ø```
 
-  The inersection of sets A and B is the empty set.
+  The intersection of sets A and B is the empty set.
   
-    A = { 1 }
-    B = { 2 }
-    A ∩ B = Ø
-    Disjoint(A, B) = true
+    Disjoint({1},{2,3}) = true
 
-### Disjoint union 
+### Disjoint union
 
-  ```∀A B ∈ Set: Disjoint(A,B) => A + B = A ∪ B```
+  ```∀A B ∈ Set: Disjoint(A,B) ⇒ A + B = A ∪ B```
 
   The union of disjoint sets A and B.
   
-    A = { 1 }
-    B = { 2 }
-    A ∩ B = Ø
-    A + B = { 1, 2 }
+    {1} + {2} = {1,2}
 
 ### Cardinality
 
-  ```Cardinality({ 2, 3, 4 }) = 3```
+  ```Cardinality(Ø) = 0```
 
   The number of elements in the finite set.
 
-    Cardinality({ 2, 3, 4 }) = 3
+    Cardinality({2,3,4}) = 3
 
 ### Subset
 
-  ```A ⊆ B```
+  ```A ⊆ B ≡ ∀x(x ∈ A ⇒ x ∈ B)```
   
   All elements of A are found in B.
   
-    A = { 1 }
-    B = { 1, 2 }
-    A ⊆ B = true
+    {1} ⊆ {1,2} = true
 
 ### Element of
   
-  ```a ∈ B```
+  ```∀a(a ∈ B ≡ {a} ∪ B = B)```
 
   a is an element of set B.
   
-    a = 1
-    B = { 1, 2 }
-    a ∈ B = true
+    1 ∈ {1,2} = true
 
 ## Predicate logic
 
@@ -206,7 +203,7 @@
 
   There exists an x in A such that P(x) is true.
 
-    ∃x ∈ { 1, 2, 3 }: x > 2
+    ∃x ∈ {1,2,3}: x > 2
 
 ## Intervals
 
@@ -245,11 +242,12 @@
 
 ## Functions
 
-### Function type
+### Function
 
   ```A → B```
 
   Functions are maps from elements of set A to elements of set B.
+
     f : ℝ → ℝ, x ↦ x * x
     f ∈ (ℝ → ℝ) = true
 
@@ -292,8 +290,18 @@
 
   ```h : A → B, x ↦ { f(x), p(x) } { g(x), ¬p(x) }```
 
-  Function definitions by cases declare how elements of set A are mapped to elements of set B arbitrated by a predicate over the value of the element of set A.
+  Maps elements of set A to elements of set B based on the value of predicate p over the input element x.
 
     positive : ℝ → 𝔹, x ↦ { true, x >= 0 } { false, x < 0 }
     positive(1)  = true
     positive(-1) = false
+
+### Ordered pairs
+
+  ```∀a ∈ A, ∀b ∈ B: (a,b) ∈ (A × B)```
+
+  Pair of element of set A with an element of set B.
+
+    Assume A ∈ Set
+    Assume B ∈ Set
+    ∀a ∈ B, ∀b ∈ B: ((a,b) ∈ (A × B))
