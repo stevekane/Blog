@@ -8,7 +8,7 @@ Let's ask a somewhat natural question: "How can I enforce that a user must have 
 
 Let's instead ask another question: "Why do programming languages have if-then-else statements?". Programs often need to execute different logic depending on the values in their inputs. The if-then-else statement has three parts: the condition, the first program, and the second program. The condition determines which program is executed for a given input. In other words, ordinary programming languages include as a fundamental building-block the capacity to write programs out of multiple smaller programs and to select which program to run based on the value in the input.
 
-This general shape of solution is strangely limited to boolean values in many mainstream languages. That is to say, the only syntax they provide for "writing a function out of multiple functions based on the inputs" is to first evaluate the inputs to a boolean value and then select a program to run. We might ask what may need to be added to a language to support more naturally write programs that may be run for users but which perform different logic based on the data actually found for a given user.
+This general shape of solution is strangely limited to boolean values in many mainstream languages. That is to say, the only syntax they provide for "writing a function out of multiple functions based on the inputs" is to first evaluate the inputs to a boolean value and then select a program to run. We might ask what we would need added to a language to execute different logic based on the data actually found for a given user.
 
 We explore this question by examining two mathematical concepts: function restriction and function extension. These concepts sound lofty ( as most mathematics tends to sound on your first exposure ) but you will hopefully come to agree that they are quite natural and simple ideas. In particular, function extension is used to explain how mathematics creates functions from smaller functions with certain properties such that they can be used to handle data from different sets.
 
@@ -30,7 +30,7 @@ We explore this question by examining two mathematical concepts: function restri
 
     Assume B ⊆ A
 
-  g restricts f because all g(x) are the same as f(x)
+  g restricts f if all g(x) are the same as f(x)
 
     Restricts(g,f) ≡ ∀x ∈ B: g(x) = f(x)
 
@@ -58,7 +58,7 @@ We explore this question by examining two mathematical concepts: function restri
 
     Assume g ∈ (B → C)
 
-  g extends f because all values of f(x) are the same as g(x)
+  g extends f if all values of f(x) are the same as g(x)
 
     Extends(g,f) ≡ ∀x ∈ A: f(x) = g(x)
 
@@ -82,13 +82,15 @@ We explore this question by examining two mathematical concepts: function restri
 
   h is a function extending f with g
 
-    Assume g ∈ ((A + B) → C), x ↦ { f(x), x ∈ A } { g(x), x ∈ B }
+    h ∈ (A + B) → C
+    h(x) = { f(x), x ∈ A } 
+           { g(x), x ∈ B }
 
 ### An example implementing if-then-else
 
   > If-then-else is a function composed of a function from (0 → C) with a function from (1 → C)
 
-  We can build the familiar notion of if-then-else out of the set representing true ({1}) the set representing false ({0}). To do this, we'll define a function called if_then_else that executes a function f if x is in {1} and a function g if x is in {0}. 
+  We can build the familiar notion of if-then-else out of the set representing true ({1}) the set representing false ({0}). To do this, we'll define a function called if_then_else that executes a function f if x is in {1} and a function g if x is in {0}.
 
   True is the set containing the number 1
 
@@ -108,26 +110,28 @@ We explore this question by examining two mathematical concepts: function restri
 
   if_then_else is a function from True or False to String
 
-    Let if_then_else ∈ ((True + False) → String), x ↦ { f(x), x ∈ True } { g(x), x ∈ False }
+    if_then_else ∈ (True + False) → String
+    if_then_else(x) { f(x), x ∈ True } 
+                    { g(x), x ∈ False }
 
-  We can see that we can now pass our function a value from the set True OR from the set False and be confident that we will execute a function of the appropriate signature. This ability to discriminate between the Sum of two domains is made possible by the two domains ( here True and False ) being disjoint. 
+  We can see that we can now pass our function a value from the set True OR from the set False and be confident that we will execute a function of the appropriate signature. This ability to discriminate between the Sum of two domains is made possible by the two domains ( here True and False ) being disjoint.
 
 ### What to do when there IS overlap in the two sets we wish to discriminate between
 
-  > "When you cannot tell the difference between two sets, you can add disjoint data to each to make them disjoint."
+  > "Distinguish between two sets by pairing them with two disjoint sets."
 
   If we are modeling a user's email and name as elements of the set String then our strategy from above won't work. This is because our function for emails and our function for names both operate on the set String which is obviously not disjoint with itself.
   
-    Disjoint(String, String) = false
+    Disjoint(String,String) = false
 
   However, we could annotate each element with a disjoint "tag" such that the two resulting sets would be disjoint. Specifically, we can create a cartesian product of the word "Email" with every String that should be an email and the word "Name" with every String that should be a name:
 
     Email × boof@gmail.com = (Email, boof@gmail.com)
     Name × BigBoof = (Name, BigBoof)
 
-  By doing this, we are guaranteeing that a name that LOOKS like an email will not ever be confused for an email. Specifically, if we have two users one whose name is "ted@gmail.com" and the other whose email is "ted@gmail.com" they will be stored as elements of two disjoint sets:
+  By doing this, we are guaranteeing that a name that LOOKS like an email will not ever be confused for an email. Specifically, if we one user named "ted@gmail.com" and another user with email "ted@gmail.com" they will be stored as elements of two disjoint sets:
 
-    (Email, ted@gmail.com) and (Name, ted@gmail.com)
+    (Email,ted@gmail.com) and (Name,ted@gmail.com)
 
   Let's see why this works...
 
@@ -158,7 +162,9 @@ We explore this question by examining two mathematical concepts: function restri
     Assume f ∈ (S → C)
     Assume g ∈ (S → C)
 
-    h ∈ ((A × S) + (B × S)) → C, (tag, x) ↦ { f(x), tag ∈ A } { g(x), tag ∈ B }
+    h ∈ (A × S) + (B × S) → C
+    h(tag, x) = { f(x), tag ∈ A } 
+                { g(x), tag ∈ B }
   
   That "tag sets" A and B being disjoint allows us to use them to discriminate between two different kinds of data being modeled by the underlying set String. In turn, we can invoke the function f for Strings that were tagged with A and the function g with Strings that were tagged with B. Indeed, this is the fundamental meaning of a sum-type which is, now understandbly, sometimes called a "disjoint-union".
 
@@ -180,4 +186,4 @@ processUser (Email email) = validate email
 processUser (Name name)   = lookupInCache name
 ```
 
-The details of these illustrative functions don't matter but they show the power of function extension disjoint sets.
+The details of these illustrative functions don't matter but they show the power of function extension over disjoint sets.
