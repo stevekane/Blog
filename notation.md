@@ -12,6 +12,14 @@
     2 ∈ {1,2} = true
     3 ∈ {1,2} = false
 
+### Ordered pairs
+
+  ```∀a ∈ A, ∀b ∈ B: (a,b) ∈ (A × B)```
+
+  Pair of element of set A with an element of set B.
+
+    (1,3) ∈ {1,2} × {3,4} = true
+
 ### Empty set
 
   ```Ø```
@@ -257,7 +265,7 @@
 
   The domain of a function is its input set.
 
-    Domain({ 1 } → { 2 }) = { 1 }
+    Domain({1} → {2}) = {1}
 
 ### Codomain
 
@@ -265,7 +273,7 @@
 
   The domain of a function is its output set.
 
-    Codomain({ 1 } → { 2 }) = { 2 }
+    Codomain({1} → {2}) = {2}
 
 ### Predicate
 
@@ -276,32 +284,28 @@
     f : [-2, 2] → 𝔹
     Predicate(f) = true
 
-### Function definition
+### Function definitions
 
-  ```f : A → B, x ↦ y```
+  Functions are sets mapping elements of their domain to elements of their codomain.
 
-  Function definitions declare how elements of set A are mapped to elements of set B.
+    f : A → B, x ↦ y
+
+  Functions are often written on a single line as follows:
 
     not : 𝔹 → 𝔹, x ↦ ¬x
     not(true)  = false
     not(false) = true
 
-### Function definition by cases
+  Functions may also be written across multiple lines when cases are used to select how elements of the domain map to the codomain. In these cases, a predicate p is evaluated over any input x to select whether f or g will be used to compute the output of the function h.
 
-  ```h : A → B, x ↦ { f(x), p(x) } { g(x), ¬p(x) }```
+    h : A → B
+    h(x) = { f(x),  p(x) }
+           { g(x), ¬p(x) }
 
   Maps elements of set A to elements of set B based on the value of predicate p over the input element x.
 
-    positive : ℝ → 𝔹, x ↦ { true, x >= 0 } { false, x < 0 }
+    positive : ℝ → 𝔹
+    positive(x) = { true, x >= 0 } 
+                  { false, x < 0 }
     positive(1)  = true
     positive(-1) = false
-
-### Ordered pairs
-
-  ```∀a ∈ A, ∀b ∈ B: (a,b) ∈ (A × B)```
-
-  Pair of element of set A with an element of set B.
-
-    Assume A ∈ Set
-    Assume B ∈ Set
-    ∀a ∈ B, ∀b ∈ B: ((a,b) ∈ (A × B))
