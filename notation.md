@@ -4,7 +4,7 @@
 
 ### Set construction
 
-  ```{a,b,c}```
+  `{a,b,c}`
 
   The set containing elements a, b and c.
 
@@ -14,7 +14,7 @@
 
 ### Ordered pairs
 
-  ```∀a ∈ A, ∀b ∈ B: (a,b) ∈ (A × B)```
+  `∀a ∈ A, ∀b ∈ B: (a,b) ∈ (A × B)`
 
   Pair of element of set A with an element of set B.
 
@@ -22,7 +22,7 @@
 
 ### Empty set
 
-  ```Ø```
+  `Ø`
 
    The set that contains no elements.
 
@@ -30,7 +30,7 @@
 
 ### Boolean values
 
-  ```𝔹```
+  `𝔹`
   
   The set of binary digits.
 
@@ -40,7 +40,7 @@
 
 ### Natural numbers
 
-  ```ℕ```
+  `ℕ`
   
   The set of the natural numbers.
 
@@ -50,7 +50,7 @@
 
 ### Real numbers
 
-  ```ℝ```
+  `ℝ`
   
   The set of the real numbers.
   
@@ -60,7 +60,7 @@
 
 ### Class of sets
 
-  ```Set```
+  `Set`
   
   The class of all sets. Think of this as the set of sets.
 
@@ -72,7 +72,7 @@
 
 ### Without
 
-  ```A / b```
+  `A / b`
 
   The set without the element b.
 
@@ -80,7 +80,7 @@
 
 ### Intersection
 
-  ```A ∩ B```
+  `A ∩ B`
   
   The set of elements found in both A and B.
   
@@ -88,7 +88,7 @@
 
 ### Union
 
-  ```A ∪ B```
+  `A ∪ B`
   
   The set of all unique elements found in A and B.
   
@@ -96,7 +96,7 @@
 
 ### Cartesian Product
 
-  ```A × B```
+  `A × B`
 
   All elements of A paired with all elements of B.
 
@@ -104,7 +104,7 @@
 
 ### Disjoint
 
-  ```Disjoint(A,B) ≡ A ∩ B = Ø```
+  `Disjoint(A,B) ≡ A ∩ B = Ø`
 
   The intersection of sets A and B is the empty set.
   
@@ -112,7 +112,7 @@
 
 ### Disjoint union
 
-  ```∀A B ∈ Set: Disjoint(A,B) ⇒ A + B = A ∪ B```
+  `∀A B ∈ Set: Disjoint(A,B) ⇒ A + B = A ∪ B`
 
   The union of disjoint sets A and B.
   
@@ -120,7 +120,7 @@
 
 ### Cardinality
 
-  ```Cardinality(Ø) = 0```
+  `Cardinality(Ø) = 0`
 
   The number of elements in the finite set.
 
@@ -128,7 +128,7 @@
 
 ### Subset
 
-  ```A ⊆ B ≡ ∀x(x ∈ A ⇒ x ∈ B)```
+  `A ⊆ B ≡ ∀x(x ∈ A ⇒ x ∈ B)`
   
   All elements of A are found in B.
   
@@ -136,7 +136,7 @@
 
 ### Element of
   
-  ```∀a(a ∈ B ≡ {a} ∪ B = B)```
+  `∀a(a ∈ B ≡ {a} ∪ B = B)`
 
   a is an element of set B.
   
@@ -146,7 +146,7 @@
 
 ### Negation
 
-  ```¬a```
+  `¬a`
 
   Boolean negation of a.
   
@@ -155,7 +155,7 @@
 
 ### Conjunction
 
-  ```a /\ b```
+  `a /\ b`
 
   Both a and b are true.
 
@@ -166,7 +166,7 @@
 
 ### Disjunction
 
-  ```a \/ b```
+  `a \/ b`
 
   Either a or b is true.
   
@@ -177,7 +177,7 @@
 
 ### Implication
 
-  ```a ⇒ b = ¬a \/ b```
+  `a ⇒ b = ¬a \/ b`
 
   a is true implies b is true.
 
@@ -188,7 +188,7 @@
 
 ### Double Implication
 
-  ```a ≡ b = (a ⇒ b) /\ (b ⇒ a)```
+  `a ≡ b = (a ⇒ b) /\ (b ⇒ a)`
 
   a is true implies b is true and b is true implies a is true.
 
@@ -199,7 +199,7 @@
 
 ### Universal quantification
 
-  ```∀x ∈ A: P(x)```
+  `∀x ∈ A: P(x)`
 
   For all x in set A P(x) is true.
 
@@ -207,7 +207,7 @@
 
 ### Existential quantification
 
-  ```∃x ∈ A: P(x)```
+  `∃x ∈ A: P(x)`
 
   There exists an x in A such that P(x) is true.
 
@@ -217,7 +217,7 @@
 
 ### Closed interval
 
-  ```[a,b] = { x ∈ ℝ | a <= x <= b }```
+  `[a,b] = { x ∈ ℝ | a <= x <= b }`
 
   Closed intervals include their endpoints in the set.
 
@@ -226,7 +226,7 @@
 
 ### Open interval
   
-  ```(a,b) = { x ∈ ℝ | a < x < b }```
+  `(a,b) = { x ∈ ℝ | a < x < b }`
 
   Open intervals do not include their endpoints in the set.
 
@@ -236,14 +236,14 @@
 
 ### Half-open intervals
 
-  ```[a,b) = { x ∈ R | a <= x < b }```
+  `[a,b) = { x ∈ R | a <= x < b }`
 
   Half-open intervals include one of their endpoints in the set.
 
     1 ∈ [1,2) = true
     2 ∈ [1,2) = false
 
-  ```(a,b] = { x ∈ R | a < x <= b }```
+  `(a,b] = { x ∈ R | a < x <= b }`
   
     1 ∈ (1,2] = false
     2 ∈ (1,2] = true
@@ -252,7 +252,7 @@
 
 ### Function
 
-  ```A → B```
+  `A → B`
 
   Functions are maps from elements of set A to elements of set B.
 
@@ -261,7 +261,7 @@
 
 ### Domain
 
-  ```∀A B ∈ Set: Domain(A → B) = A```
+  `∀A B ∈ Set: Domain(A → B) = A`
 
   The domain of a function is its input set.
 
@@ -269,7 +269,7 @@
 
 ### Codomain
 
-  ```∀A B ∈ Set: Codomain(A → B) = B```
+  `∀A B ∈ Set: Codomain(A → B) = B`
 
   The domain of a function is its output set.
 
@@ -277,7 +277,7 @@
 
 ### Predicate
 
-  ```∀f ∈ (A → 𝔹): Predicate(f)```
+  `∀f ∈ (A → 𝔹): Predicate(f)`
 
   Predicates are functions whose codomain is boolean digits.
 
@@ -288,7 +288,7 @@
 
   Functions are sets mapping elements of their domain to elements of their codomain.
 
-    f : A → B, x ↦ y
+  `f : A → B, x ↦ y`
 
   Functions are often written on a single line as follows:
 
@@ -298,9 +298,15 @@
 
   Functions may also be written across multiple lines when cases are used to select how elements of the domain map to the codomain. In these cases, a predicate p is evaluated over any input x to select whether f or g will be used to compute the output of the function h.
 
-    h : A → B
-    h(x) = { f(x),  p(x) }
-           { g(x), ¬p(x) }
+  `p : A → 𝔹`
+
+  `f : A → B`
+
+  `g : A → B`
+
+  `h : A → B`
+
+  `h(x) = { f(x),  p(x) } { g(x), ¬p(x) }`
 
   Maps elements of set A to elements of set B based on the value of predicate p over the input element x.
 
