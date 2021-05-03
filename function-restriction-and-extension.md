@@ -111,8 +111,8 @@ We explore this question by examining two mathematical concepts: function restri
   if_then_else is a function from True or False to String
 
     if_then_else ∈ (True + False) → String
-    if_then_else(x) { f(x), x ∈ True } 
-                    { g(x), x ∈ False }
+    if_then_else(x) = { f(x), x ∈ True } 
+                    = { g(x), x ∈ False }
 
   We can see that we can now pass our function a value from the set True OR from the set False and be confident that we will execute a function of the appropriate signature. This ability to discriminate between the Sum of two domains is made possible by the two domains ( here True and False ) being disjoint.
 
@@ -181,7 +181,7 @@ data User = Email String | Name String
 That's it. The identifiers Email and Name must be disjoint as explored above enabling functions over users to discriminate between them and execute the appropriate function:
 
 ```haskell
-processUser :: User -> LoginStatus
+processUser :: User → LoginStatus
 processUser (Email email) = validate email
 processUser (Name name)   = lookupInCache name
 ```
